@@ -16,6 +16,12 @@ eraser_button.onclick = function() {
   console.log(mode);
 };
 
+brush_button.onclick = function() {
+  mode = 'painting';
+  console.log(mode);
+};
+
+
 var lastPoint = {
   x: null,
   y: null

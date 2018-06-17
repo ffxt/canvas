@@ -6,7 +6,8 @@ body {
   margin: 0;
 }
 
-#eraser_button {
+
+.actions {
   position: fixed;
   bottom: 0;
   left: 0;
