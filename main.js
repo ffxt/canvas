@@ -152,8 +152,10 @@ garbage_svg.onclick = function() {
   context.clearRect(0, 0, canvas.width, canvas.height);
 };
 
-
-
+download_svg.onclick = function() {
+  var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+  window.location.href=image; // it will save locally
+};
 
 red.onclick = function(){
   red.classList.add('active');
@@ -187,4 +189,5 @@ thick.onclick = function(){
   thick.classList.add('active');
   thin.classList.remove('active');
 }
+
 
