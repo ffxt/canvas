@@ -70,3 +70,30 @@ ul > li{
 .colors > li.blue {
   background-color: blue;
 }
+
+.sizes {
+  position: fixed;
+  right: 20px;
+  top: 10px;
+}
+
+.sizes > li{
+  margin: 20px 0;
+  transition: all 0.3s;
+}
+
+.sizes > li.active{
+  margin: 20px 0;
+  transform: scale(1.2);
+}
+
+.sizes > .thin {
+  width: 20px;
+  border-top: 3px solid black;
+}
+
+.sizes > .thick {
+  width: 20px;
+  border-top: 6px solid black;
+}
+

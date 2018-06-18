@@ -7,25 +7,11 @@ function setCanvas() {
   canvas.width = document.documentElement.clientWidth;
   canvas.height = document.documentElement.clientHeight;
   context.strokeStyle = 'red';
+  context.lineWidth = 5;
 }
 
 var mode = 'painting';
 var clicked = false;
-
-eraser_svg.onclick = function() {
-  eraser_svg.classList.add('active');
-  brush_svg.classList.remove('active');
-  mode = 'eraser';
-  console.log(mode);
-};
-
-brush_svg.onclick = function() {
-  eraser_svg.classList.remove('active');
-  brush_svg.classList.add('active');
-  mode = 'painting';
-  console.log(mode);
-};
-
 
 var lastPoint = {
   x: null,
@@ -130,7 +116,6 @@ else {
 }
 
 function drawLine(x1, y1, x2, y2){
-  context.lineWidth = 5;
   context.beginPath();
   context.moveTo(x1, y1);
   context.lineTo(x2, y2);
@@ -141,6 +126,34 @@ function drawLine(x1, y1, x2, y2){
 function eraser(x, y){
   context.clearRect(x - 5, y - 5, 10, 10);
 }
+
+eraser_svg.onclick = function() {
+  eraser_svg.classList.add('active');
+  brush_svg.classList.remove('active');
+  mode = 'eraser';
+  console.log(mode);
+};
+
+brush_svg.onclick = function() {
+  eraser_svg.classList.remove('active');
+  brush_svg.classList.add('active');
+  mode = 'painting';
+  console.log(mode);
+};
+
+eraser_svg.onclick = function() {
+  eraser_svg.classList.add('active');
+  brush_svg.classList.remove('active');
+  mode = 'eraser';
+  console.log(mode);
+};
+
+garbage_svg.onclick = function() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+};
+
+
+
 
 red.onclick = function(){
   red.classList.add('active');
@@ -161,5 +174,17 @@ blue.onclick = function(){
   blue.classList.add('active');
   green.classList.remove('active');
   context.strokeStyle = 'blue'
+}
+
+thin.onclick = function(){
+  context.lineWidth = 5;
+  thin.classList.add('active');
+  thick.classList.remove('active');
+}
+
+thick.onclick = function(){
+  context.lineWidth = 10;
+  thick.classList.add('active');
+  thin.classList.remove('active');
 }
 
