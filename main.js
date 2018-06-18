@@ -6,17 +6,22 @@ window.onresize = setCanvas;
 function setCanvas() {
   canvas.width = document.documentElement.clientWidth;
   canvas.height = document.documentElement.clientHeight;
+  context.strokeStyle = 'red';
 }
 
 var mode = 'painting';
 var clicked = false;
 
-eraser_button.onclick = function() {
+eraser_svg.onclick = function() {
+  eraser_svg.classList.add('active');
+  brush_svg.classList.remove('active');
   mode = 'eraser';
   console.log(mode);
 };
 
-brush_button.onclick = function() {
+brush_svg.onclick = function() {
+  eraser_svg.classList.remove('active');
+  brush_svg.classList.add('active');
   mode = 'painting';
   console.log(mode);
 };
@@ -135,5 +140,26 @@ function drawLine(x1, y1, x2, y2){
 
 function eraser(x, y){
   context.clearRect(x - 5, y - 5, 10, 10);
+}
+
+red.onclick = function(){
+  red.classList.add('active');
+  blue.classList.remove('active');
+  green.classList.remove('active');
+  context.strokeStyle = 'red'
+}
+
+green.onclick = function(){
+  red.classList.remove('active');
+  blue.classList.remove('active');
+  green.classList.add('active');
+  context.strokeStyle = 'green'
+}
+
+blue.onclick = function(){
+  red.classList.remove('active');
+  blue.classList.add('active');
+  green.classList.remove('active');
+  context.strokeStyle = 'blue'
 }
 
